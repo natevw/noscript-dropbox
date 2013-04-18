@@ -1,0 +1,14 @@
+<!doctype html>
+<html><head>
+    <meta charset="utf-8">
+    <title>File uploader</title>
+</head><body>
+<h1>Upload a file</h1>
+<!-- figured out form deets via http://onabai.wordpress.com/2012/10/10/couchapp-uploading-attachments-part-1/ -->
+<form action="../../test_share" method="post" enctype="multipart/form-data">
+  <input type=file name="_attachments"><br>
+  <!-- TODO: this should use a show function to generate form automatically -->
+  <input type=hidden name="_rev" value="PASTE IN MANUALLY">
+  <input type=submit>
+</form>
+</body></html>
