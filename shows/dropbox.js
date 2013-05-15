@@ -15,7 +15,7 @@ function(doc, req) {
             doc_path = req.path[0] + '/' + req.path[req.path.length - 1];
         Object.keys(doc._attachments || {}).forEach(function (file) {
             html +=
-'    <li><a href="/' + doc_path + '/' + file + '">' + file + '</a></li>\n';
+'    <li><a href="/' + doc_path + '/' + encodeURIComponent(file) + '">' + file + '</a></li>\n';
         });
         
         html += [
@@ -23,7 +23,7 @@ function(doc, req) {
 '<form action="/' + doc_path + '" method="post" enctype="multipart/form-data">',
 '    <input type=file name="_attachments"><br>',
 '    <input type=hidden name="_rev" value="' + doc._rev + '">',
-'    <input type=submit>',
+'    <input type=submit value="Upload">',
 '</form>',
 '<hr>',
 '<form method=POST action="/' + ddoc_path + '/_update/dropbox/'+ doc._id + '"><input name="_method" value="DELETE" type=hidden><input type=submit value="Delete!"></form>',
